@@ -1,9 +1,26 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
-const ThemeContext = createContext();
+const DataContext = createContext();
 
-const ThemeContextProvider = ({ children, data }) => {
+const DataContextProvider = ({ children }) => {
   const [theme, setTheme] = useState(false);
+
+  //   useEffect(() => {
+  //     fetch("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setData(data);
+  //       })
+  //       .catch(error => {
+  //         console.error('Veri çekerken hata olustu:' , error)
+  //       })
+  //   }, []);
 
   const contextData = useMemo(
     () => ({
@@ -14,20 +31,18 @@ const ThemeContextProvider = ({ children, data }) => {
   );
 
   return (
-    <ThemeContext.Provider value={contextData}>
-      {children}
-    </ThemeContext.Provider>
+    <DataContext.Provider value={contextData}>{children}</DataContext.Provider>
   );
 };
 
-function useTheme(){
-    const context = useContext(ThemeContext);
+function useData() {
+  const context = useContext(DataContext);
 
-    if(!context){
-        throw new Error('There is no context provider')
-    }
+  if (!context) {
+    throw new Error("There is no context provider");
+  }
 
-    return context
+  return context;
 }
 
-export {useTheme , ThemeContextProvider}
+export { useData, DataContextProvider };

@@ -1,14 +1,20 @@
-import React from 'react'
-import { useTheme } from '../../context/ThemeContext'
+import React from "react";
+import { useData } from "../../context/ThemeContext";
+import Logo from "./Logo";
+import FontFamilyBox from "./FontFamilyBox";
 
 function Header() {
-    const {theme} = useTheme();
-
   return (
-    <div>
-      Header Page
+    <div className="flex justify-between items-center">
+      <Logo />
+
+      <div className="flex items-center gap-4  md:gap-6">
+        <FontFamilyBox />
+        <div>|</div>
+        <div>gece</div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

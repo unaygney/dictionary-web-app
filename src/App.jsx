@@ -1,8 +1,11 @@
 import MainPage from "./components/MainPage";
+import { DataContextProvider } from "./components/context/ThemeContext";
 function App() {
   return (
     <>
-      <MainPage />
+      <DataContextProvider>
+        <MainPage />
+      </DataContextProvider>
     </>
   );
 }
