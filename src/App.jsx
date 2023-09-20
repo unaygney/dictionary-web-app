@@ -1,11 +1,10 @@
+import MainPage from "./components/MainPage";
 function App() {
-
-
   return (
     <>
-    <p className="bg-black text-red-600 text-4xl ">test</p>
+      <MainPage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
