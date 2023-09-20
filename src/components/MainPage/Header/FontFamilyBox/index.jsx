@@ -8,15 +8,13 @@ function classNames(...classes) {
 }
 
 function FontFamilyBox() {
-const {setFont , font , theme}  = useData()
-
-console.log(font)
+const {setFont,font , theme}  = useData()
 
   return (
     <Menu as="div" className="relative inline-block text-left ">
       <div>
         <Menu.Button className={`inline-flex w-full justify-center gap-x-1.5 rounded-md bg-transparent  text-sm text-gray-900 font-bold ${theme ? 'text-white' : ""} `}>
-          Sans Serif
+          {font}
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-[#A445ED]"
             aria-hidden="true"
@@ -33,14 +31,14 @@ console.log(font)
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className={`absolute right-0 z-10 mt-2 w-[183px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${theme ? "bg-[#1F1F1F] custom-box-shadow" : ""} `}>
+        <Menu.Items className={`absolute right-0 z-10 mt-2 w-[183px] origin-top-right rounded-md  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${theme ? "bg-[#1F1F1F] custom-box-shadow" : "bg-white"} `}>
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
                 <button
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white" : "text-gray-900"}`
+                    active ? " text-gray-900" : "text-gray-700",
+                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white hover:bg-gray-900" : "text-gray-900"}`
                   )}
                   onClick={(() => setFont('Sans-Serif'))}
                 >
@@ -53,8 +51,8 @@ console.log(font)
               {({ active }) => (
                 <button
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white" : "text-gray-900"}`
+                    active ? " text-gray-900" : "text-gray-700",
+                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white hover:bg-gray-900" : "text-gray-900"}`
                   )}
                   onClick={(() => setFont('Serif'))}
                 >
@@ -66,8 +64,8 @@ console.log(font)
               {({ active }) => (
                 <button
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900 " : "text-gray-700",
-                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white" : "text-gray-900"}`
+                    active ? " text-gray-900 " : "text-gray-700",
+                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white hover:bg-gray-900" : "text-gray-900"}`
                   )}
                   onClick={(() => setFont('Mono'))}
                 >

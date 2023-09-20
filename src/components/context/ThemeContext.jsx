@@ -8,29 +8,38 @@ import React, {
 
 const DataContext = createContext();
 
-const DataContextProvider = ({ children }) => {
+const DataContextProvider = ({ children, data }) => {
   const [theme, setTheme] = useState(false);
-  const [font , setFont] =  useState('Sans-Serif')
+  const [font, setFont] = useState("Sans-Serif");
+  const [search, setSearch] = useState('');
+  const [apiData, setApiData] = useState('');
 
-  //   useEffect(() => {
-  //     fetch("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         setData(data);
-  //       })
-  //       .catch(error => {
-  //         console.error('Veri çekerken hata olustu:' , error)
-  //       })
-  //   }, []);
+  const getData = () => {
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setApiData(data);
+        console.log(data)
+      })
+      .catch((error) => {
+        console.error("Veri çekerken hata olustu:", error);
+      });
+  };
+
+
 
   const contextData = useMemo(
     () => ({
       theme,
+      apiData,
       setTheme,
       font,
       setFont,
+      setSearch,
+      search,
+      getData,
     }),
-    [theme , font]
+    [theme, font, search  ]
   );
 
   return (
