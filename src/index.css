@@ -11,3 +11,9 @@
     background-color: #fff;
     color: #2D2D2D;
 }
+
+@layer utilities {
+    .custom-box-shadow{
+        box-shadow: 0px 5px 30px 0px #A445ED;
+    }
+}

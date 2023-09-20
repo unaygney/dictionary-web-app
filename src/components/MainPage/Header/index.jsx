@@ -2,6 +2,7 @@ import React from "react";
 import { useData } from "../../context/ThemeContext";
 import Logo from "./Logo";
 import FontFamilyBox from "./FontFamilyBox";
+import ThemeToggle from "./ThemeToggle";
 
 function Header() {
   return (
@@ -10,8 +11,8 @@ function Header() {
 
       <div className="flex items-center gap-4  md:gap-6">
         <FontFamilyBox />
-        <div>|</div>
-        <div>gece</div>
+        <div className="text-gray-500">|</div>
+        <ThemeToggle />
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ const DataContext = createContext();
 
 const DataContextProvider = ({ children }) => {
   const [theme, setTheme] = useState(false);
+  const [font , setFont] =  useState('Sans-Serif')
 
   //   useEffect(() => {
   //     fetch("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
@@ -26,8 +27,10 @@ const DataContextProvider = ({ children }) => {
     () => ({
       theme,
       setTheme,
+      font,
+      setFont,
     }),
-    [theme]
+    [theme , font]
   );
 
   return (

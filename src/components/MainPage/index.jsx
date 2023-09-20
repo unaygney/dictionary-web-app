@@ -3,14 +3,14 @@ import Header from "./Header";
 import { useData } from "../context/ThemeContext";
 
 function MainPage() {
-const {theme} = useData()
-console.log(theme)
-  return (
+  const { theme } = useData();
 
-      <div className={`w-full h-[100vh] container mx-auto max-w-[737px] px-10 md:px-0 py-10 ${theme ? "bg-dark" : "bg-light"}`}>
+  return (
+    <div className={`w-[100vw] h-[100vh] ${theme ? "bg-dark" : "bg-light"}`}>
+      <div className="container mx-auto max-w-[737px] px-10 md:px-0 py-10 ">
         <Header />
       </div>
-
+    </div>
   );
 }
 

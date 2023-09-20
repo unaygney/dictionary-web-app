@@ -1,16 +1,21 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { useData } from "../../../context/ThemeContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function FontFamilyBox() {
+const {setFont , font , theme}  = useData()
+
+console.log(font)
+
   return (
     <Menu as="div" className="relative inline-block text-left ">
       <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white  text-sm font-semibold text-gray-900">
+        <Menu.Button className={`inline-flex w-full justify-center gap-x-1.5 rounded-md bg-transparent  text-sm text-gray-900 font-bold ${theme ? 'text-white' : ""} `}>
           Sans Serif
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-[#A445ED]"
@@ -28,16 +33,18 @@ function FontFamilyBox() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-[183px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className={`absolute right-0 z-10 mt-2 w-[183px] origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${theme ? "bg-[#1F1F1F] custom-box-shadow" : ""} `}>
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
                 <button
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm  w-full text-left"
+                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white" : "text-gray-900"}`
                   )}
+                  onClick={(() => setFont('Sans-Serif'))}
                 >
+                  
                   Sans Serif
                 </button>
               )}
@@ -47,8 +54,9 @@ function FontFamilyBox() {
                 <button
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm w-full text-left"
+                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white" : "text-gray-900"}`
                   )}
+                  onClick={(() => setFont('Serif'))}
                 >
                   Serif
                 </button>
@@ -58,9 +66,10 @@ function FontFamilyBox() {
               {({ active }) => (
                 <button
                   className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm  w-full text-left"
+                    active ? "bg-gray-100 text-gray-900 " : "text-gray-700",
+                    `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white" : "text-gray-900"}`
                   )}
+                  onClick={(() => setFont('Mono'))}
                 >
                   Mono
                 </button>
