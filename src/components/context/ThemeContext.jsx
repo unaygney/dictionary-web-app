@@ -9,10 +9,15 @@ import React, {
 const DataContext = createContext();
 
 const DataContextProvider = ({ children, data }) => {
-  const [theme, setTheme] = useState(false);
-  const [font, setFont] = useState("Sans-Serif");
+
+  const savedTheme = localStorage.getItem("theme");
+  const initialTheme = savedTheme === "true"; 
+
+  const [theme, setTheme] = useState(initialTheme);
+  const [font, setFont] = useState("sans-serif");
   const [search, setSearch] = useState("example");
   const [apiData, setApiData] = useState();
+
 
 
   const getData = (e) => {
@@ -34,6 +39,11 @@ const DataContextProvider = ({ children, data }) => {
     getData()
   },[])
 
+
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme.toString());
+  }, [theme]);
 
   const contextData = useMemo(
     () => ({

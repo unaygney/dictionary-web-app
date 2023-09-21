@@ -40,7 +40,7 @@ const {setFont,font , theme}  = useData()
                     active ? " text-gray-900" : "text-gray-700",
                     `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white hover:bg-gray-900" : "text-gray-900"}`
                   )}
-                  onClick={(() => setFont('Sans-Serif'))}
+                  onClick={(() => setFont('sans-serif'))}
                 >
                   
                   Sans Serif
@@ -54,7 +54,7 @@ const {setFont,font , theme}  = useData()
                     active ? " text-gray-900" : "text-gray-700",
                     `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white hover:bg-gray-900" : "text-gray-900"}`
                   )}
-                  onClick={(() => setFont('Serif'))}
+                  onClick={(() => setFont('serif'))}
                 >
                   Serif
                 </button>
@@ -67,7 +67,7 @@ const {setFont,font , theme}  = useData()
                     active ? " text-gray-900 " : "text-gray-700",
                     `block px-4 py-2 text-sm  w-full text-left hover:text-[#A445ED] font-bold ${theme ? "text-white hover:bg-gray-900" : "text-gray-900"}`
                   )}
-                  onClick={(() => setFont('Mono'))}
+                  onClick={(() => setFont('mono'))}
                 >
                   Mono
                 </button>
