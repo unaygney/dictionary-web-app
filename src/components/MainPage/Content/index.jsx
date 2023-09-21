@@ -4,9 +4,19 @@ import { useData } from "../../context/ThemeContext";
 import Example from "./Example";
 
 function Content() {
-  const { apiData  } = useData();
+  const { apiData } = useData();
   const data = apiData ? apiData[0] : null;
-  
+
+
+const handlePlay = () => {
+  if (data !== null) {
+    const filledPhonetics = data.phonetics.filter((phonetic) => !!phonetic.audio)[0].audio;
+   const audio = new Audio(filledPhonetics)
+   audio.play()
+
+  }
+}
+
   return (
     <>
       <div className="mt-7 md:mt-12 flex  justify-between items-center gap-2 md:gap-3">
@@ -18,11 +28,11 @@ function Content() {
             {data ? data?.phonetic : "/ˈkiːbɔːd/"}
           </p>
         </div>
-        <button onClick={handlePlay}>
+        <button onClick={handlePlay} >
           <Logo />
         </button>
       </div>
-<Example  data={data} />
+      <Example data={data} />
     </>
   );
 }

@@ -11,19 +11,29 @@ const DataContext = createContext();
 const DataContextProvider = ({ children, data }) => {
   const [theme, setTheme] = useState(false);
   const [font, setFont] = useState("Sans-Serif");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("example");
   const [apiData, setApiData] = useState();
 
-  const getData = () => {
+
+  const getData = (e) => {
+
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`)
       .then((response) => response.json())
       .then((data) => {
         setApiData(data);
+
       })
+      
       .catch((error) => {
         console.error("Veri çekerken hata olustu:", error);
       });
   };
+
+
+  useEffect(() => {
+    getData()
+  },[])
+
 
   const contextData = useMemo(
     () => ({
