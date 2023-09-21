@@ -1,5 +1,4 @@
 import React from "react";
-import { useData } from "../../context/ThemeContext";
 import Logo from "./Logo";
 import FontFamilyBox from "./FontFamilyBox";
 import ThemeToggle from "./ThemeToggle";
