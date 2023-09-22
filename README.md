@@ -1,6 +1,6 @@
 # Frontend Mentor - Dictionary web app solution
 
-This is a solution to the [Dictionary web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Dictionary web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -32,11 +32,10 @@ Users should be able to:
 
 ![](./screenshot.jpg)
 
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/dictionary-web-app-with-react-and-tailwind-BjmFDoresq)
+- Live Site URL: [Add live site URL here](https://650d9a3e2330da00a69a3852--willowy-churros-762902.netlify.app/)
 
 ## My process
 
@@ -50,9 +49,7 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - [Tailwind](https://tailwindcss.com/) - For styles
 
-
 ## Author
 
 - Website - [Guney Unay](https://www.guneyunay.com)
 - Frontend Mentor - [@unaygney](https://www.frontendmentor.io/profile/unaygney)
-
