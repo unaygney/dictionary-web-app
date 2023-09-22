@@ -42,8 +42,8 @@ function Example({ data }) {
           <h5>Meaning</h5>
           <ul className="">
             {verbs?.map((verb, index) => (
-              <>
-                <li className="flex items-baseline gap-4" key={index}>
+               <React.Fragment key={index}>
+                <li className="flex items-baseline gap-4" >
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ function Example({ data }) {
                 {verb.example && (
                   <p className="ml-6 text-[#757575] my-2 ">"{verb.example}"</p>
                 )}
-              </>
+             </React.Fragment>
             ))}
           </ul>
           <span className={`block h-[1px] bg-[#3a3a3a] mt-8 mb-6 `}></span>

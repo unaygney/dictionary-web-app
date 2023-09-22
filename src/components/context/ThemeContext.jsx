@@ -16,6 +16,7 @@ const DataContextProvider = ({ children, data }) => {
   const [font, setFont] = useState("sans-serif");
   const [search, setSearch] = useState("example");
   const [apiData, setApiData] = useState();
+  const [loading, setLoading] = useState(true);
 
   const getData = (e) => {
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`)
@@ -25,6 +26,11 @@ const DataContextProvider = ({ children, data }) => {
       })
       .then(() => {
         setSearch("");
+      })
+      .finally(() => {
+       setTimeout(() => {
+       // setLoading(false);
+       }, 500);
       })
 
       .catch((error) => {
@@ -50,8 +56,9 @@ const DataContextProvider = ({ children, data }) => {
       setSearch,
       search,
       getData,
+      loading
     }),
-    [theme, font, search, apiData]
+    [theme, font, search, apiData , loading]
   );
 
   return (
