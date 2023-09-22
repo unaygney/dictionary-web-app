@@ -8,7 +8,7 @@ function Content() {
   const { apiData , loading } = useData();
   const data = apiData ? apiData[0] : null;
   
-  console.log(loading)
+
 
 
   const handlePlay = async () => {
