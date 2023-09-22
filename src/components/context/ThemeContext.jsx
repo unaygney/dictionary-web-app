@@ -9,37 +9,32 @@ import React, {
 const DataContext = createContext();
 
 const DataContextProvider = ({ children, data }) => {
-
   const savedTheme = localStorage.getItem("theme");
-  const initialTheme = savedTheme === "true"; 
+  const initialTheme = savedTheme === "true";
 
   const [theme, setTheme] = useState(initialTheme);
   const [font, setFont] = useState("sans-serif");
   const [search, setSearch] = useState("example");
   const [apiData, setApiData] = useState();
 
-
-
   const getData = (e) => {
-
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`)
       .then((response) => response.json())
       .then((data) => {
         setApiData(data);
-
       })
-      
+      .then(() => {
+        setSearch("");
+      })
+
       .catch((error) => {
         console.error("Veri çekerken hata olustu:", error);
       });
   };
 
-
   useEffect(() => {
-    getData()
-  },[])
-
-
+    getData();
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme.toString());
